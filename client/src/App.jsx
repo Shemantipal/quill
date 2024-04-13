@@ -23,13 +23,13 @@ function App() {
     const prompts = `
     Hey there! I'm in a bit of a bind and could really use your expertise. I have some code that needs urgent attention—it's riddled with errors and desperately needs optimization. Can you please help me out? Below is the code I'm currently working with:
     ${prompt}
-    It's imperative that we address any errors, improve efficiency, and optimize the code structure as soon as possible. Could you please review the code and provide your feedback? I'm counting on you to help resolve these issues swiftly. Your response should be only in a JSON-like format with categories such as 'errors', 'suggestions', 'notes', 'bugs','correctcode','remarks' or any other relevant areas. Please exclude any starting and ending code blocks and provide only the JSON data. This is a strict rule that we need to follow. Thank you for your urgent assistance!
+    It's imperative that we address any errors, improve efficiency, and optimize the code structure as soon as possible. Could you please review the code and provide your feedback? I'm counting on you to help resolve these issues swiftly. Your response should be only in a JSON-like format with categories such as 'errors', 'suggestions', 'notes', 'bugs','correctcode','marksoutof10' or any other relevant areas. Please exclude any starting and ending code blocks and provide only the JSON data. This is a strict rule that we need to follow. Thank you for your urgent assistance!
     
     `
     try {
       await axios.post('http://localhost:5000/send-prompt', { prompt: prompts })
         .then(response => {
-          const responseJson = JSON.parse(response.data.response) || { errors: [], bugs: [], notes: [], optimization: [], suggestions: [], correctcode: [], remarks: []}
+          const responseJson = JSON.parse(response.data.response) || { errors: [], bugs: [], notes: [], optimization: [], suggestions: [], correctcode: [], marksoutof10: 0}
           console.log(responseJson)
           setResponse(responseJson)
           setLoading(false)
@@ -64,7 +64,7 @@ function App() {
       <OptimizationSection optimizations={response.optimization} />
       <SuggestionSection suggestions={response.suggestions} />
       <CorrectCode correct={response.correctcode}/>
-      <ReportCard remarks={response.remarks}/>
+      <ReportCard marks={response.marksoutof10}/>
     </div>
   );
 }
