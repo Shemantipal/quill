@@ -8,7 +8,7 @@ function SuggestionSection({ suggestions }) {
                     <strong className='font-mono underline decoration-wavy text-xl'>Suggestions!</strong>
                     <ul>
                         {suggestions.map((suggestion, index) => (
-                            <li key={index}>✔{suggestion}</li>
+                            <li key={index}>&#9989;{suggestion}</li>
                         ))}
                     </ul>
                 </div>

@@ -1,7 +1,52 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Jersey+25&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
-@tailwind base;
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @tailwind components;
 @tailwind utilities;
+
+.landing-page { 
+    background-image: url('bgqui.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 7px 5px rgba(192, 255, 192, 0.884); }
+    50% { box-shadow: 0 0 5px 7px rgba(192, 248, 192, 0.87); }
+    100% { box-shadow: 0 0 5px 5px rgba(191, 241, 191, 0.884); }
+  }
+  
+  .green-border-glow {
+    animation: glow 3s infinite; /* Adjust timing as needed */
+  }
+  .prompt-page{ 
+    background-image: url('cele.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.typewriter{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
 
   

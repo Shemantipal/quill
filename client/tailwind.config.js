@@ -6,11 +6,11 @@ export default {
   ],
   theme: {
     extend: {
-      animation: {
-        'typewriter-effect': 'spin 3s linear infinite',
+      fontFamily:{
+        space:["Space Mono", "monospace"],
       }
     },
   },
   plugins: [],
-}
+};
 
