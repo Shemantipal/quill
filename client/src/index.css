@@ -2,11 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .landing-page { 
     background-image: url('bgqui.gif');
     background-repeat: no-repeat;
     background-size: cover;
-    background-blend-mode: darken;
+    background-blend-mode: luminosity;
+    background-color: rgb(2, 58, 58);
 }
 
 @keyframes glow {

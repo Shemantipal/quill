@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import { ClerkProvider } from '@clerk/clerk-react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import LandingPage from './components/LandingPage.jsx';
-import App from './App.jsx';
+import LandingPage from './page/LandingPage';
+import App from './page/App';
+import SignInPage from "./page/sign-in"
 
-// Create a BrowserRouter instance
 const router = createBrowserRouter([
+  {
+    path: 'signin',
+    element: <SignInPage />
+  },
   {
     path: '/',
     element: <LandingPage />,
@@ -23,11 +27,8 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key")
 }
 
-
-// Render the application with React.StrictMode
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* Wrap the RouterProvider with ClerkProvider */}
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <RouterProvider router={router} />
     </ClerkProvider>
