@@ -19,13 +19,13 @@ export function HeroLandingPage() {
                 }}
                 className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
             >
-                Elevate your code quality with
+                With insomnia, nothing is real. Everything is far away. 
                 <br />
-                <Highlight className="text-black dark:text-white">
-                    AI-powered critique
+                <Highlight className="text-white bg-gradient-to-r from-indigo-500 to-purple-500">
+                Everything is a copy of a copy of a copy.
                 </Highlight>
                 <br />
-                for developers!
+               
             </motion.h1>
         </HeroHighlight>
     );

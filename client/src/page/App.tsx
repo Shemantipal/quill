@@ -13,13 +13,8 @@ function App() {
   const navigate = useNavigate();
   const { isSignedIn, user, isLoaded } = useUser();
 
-  if (!isLoaded) {
-    // Handle loading state however you like
-    return null;
-  }
-
-  if (!isSignedIn) {
-    return navigate("/sign-in")
+  if (!isSignedIn && isLoaded) {
+    return navigate("/signin")
   }
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState({
@@ -58,17 +53,17 @@ function App() {
   };
 
   return (
-    <div className='bg-purple-600/10'>
+    <div className='bg-cyan-600/20'>
       <div className='dark:bg-dot-thick-neutral-800 min-h-screen flex flex-col justify-center items-center'>
         <form className='flex flex-col text-center  items-center'>
-          <label className='text-black mb-4 text-lg italic'>
+          <label className='text-black font-black mb-4 text-lg italic'>
             Provide the code snippet for review:
           </label>
           <textarea
             value={prompt}
             rows={20}
             onChange={(e) => setPrompt(e.target.value)}
-            className='bg-slate-900 text-white p-2 rounded-md resize-none w-[700px]'
+            className='bg-slate-900 text-white p-2 rounded-md resize-none w-[700px] itallic'
           ></textarea>
           <button
             onClick={handleSubmit}
@@ -76,7 +71,7 @@ function App() {
             {loading ? 'Please Wait...' : 'SUBMIT'}
           </button>
         </form>
-        <div className='flex flex-row justify-start items-center gap-10'>
+        <div className='flex flex-row justify-center items-start gap-10 mb-10'>
           {response.marksoutof10 && <ReportCard marks={response.marksoutof10 as number} />}
           <div className='justify-items-start'>
             {response.errors?.length > 0 && <ErrorSection errors={response.errors as string[]} />}
