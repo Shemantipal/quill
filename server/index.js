@@ -12,6 +12,10 @@ app.use(express.json());
 const apiKey = process.env.API_KEY
 const anthropic = new Anthropic({ apiKey });
 
+app.get("/", async (req, res) => {
+  res.status(200).json({ status: 'up and running!' });
+})
+
 app.post('/send-prompt', async (req, res) => {
   try {
     const { prompt } = req.body;
