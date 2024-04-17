@@ -1,6 +1,4 @@
-import React from 'react'
-
-function OptimizationSection({ optimizations }) {
+function OptimizationSection({ optimizations }: { optimizations: string[] }) {
     return (
         <div className='mt-10 max-w-2xl px-3 py-2 rounded-lg'>
             {optimizations && optimizations.length > 1 ? (

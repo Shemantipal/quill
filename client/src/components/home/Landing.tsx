@@ -1,4 +1,3 @@
-"use client";
 import { Link } from "react-router-dom";
 import { people } from "../../utils/author";
 import { AnimatedTooltip } from "../ui/animated-tooltip";

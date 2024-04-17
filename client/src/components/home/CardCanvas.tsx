@@ -1,8 +1,6 @@
-"use client";
-import React from "react";
-
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "../ui/canvas-reveal-effect";
+import React from "react";
 
 export function CardCanvasRevealEffect() {
     return (

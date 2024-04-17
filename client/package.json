@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^4.30.10",
     "@react-three/fiber": "^8.16.2",
+    "@types/offscreencanvas": "^2019.7.3",
     "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.28",
