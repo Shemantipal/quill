@@ -7,8 +7,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const corsOptions = {
   origin: 'https://aiquill.vercel.app',
+  credentials: true,
 };
 app.use(cors(corsOptions));
+app.options('*', cors());
 app.use(express.json());
 
 const apiKey = process.env.API_KEY
