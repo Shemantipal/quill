@@ -7,15 +7,9 @@ import OptimizationSection from '../components/app/OptimizationSection';
 import SuggestionSection from '../components/app/SuggestionSection';
 import CorrectCode from '../components/app/CorrectCode';
 import ReportCard from '../components/app/ReportCard';
-import { useNavigate } from 'react-router-dom';
-import { useUser } from "@clerk/clerk-react";
+import { Navbar } from '../components/navbar';
 function App() {
-  const navigate = useNavigate();
-  const { isSignedIn, user, isLoaded } = useUser();
 
-  if (!isSignedIn && isLoaded) {
-    return navigate("/signin")
-  }
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState({
     errors: [],
@@ -53,37 +47,41 @@ function App() {
   };
 
   return (
-    <div className='bg-cyan-600/20'>
-      <div className='dark:bg-dot-thick-neutral-800 min-h-screen flex flex-col justify-center items-center'>
-        <form className='flex flex-col text-center  items-center'>
-          <label className='text-black font-black mb-4 text-lg italic'>
-            Provide the code snippet for review:
-          </label>
-          <textarea
-            value={prompt}
-            rows={20}
-            onChange={(e) => setPrompt(e.target.value)}
-            className='bg-slate-900 text-white p-2 rounded-md resize-none w-[700px] itallic'
-          ></textarea>
-          <button
-            onClick={handleSubmit}
-            className='bg-green-500 mt-10 rounded-lg pt-3 pb-3 pr-8 pl-8'>
-            {loading ? 'Please Wait...' : 'SUBMIT'}
-          </button>
-        </form>
-        <div className='flex flex-row justify-center items-start gap-10 mb-10'>
-          {response.marksoutof10 && <ReportCard marks={response.marksoutof10 as number} />}
-          <div className='justify-items-start'>
-            {response.errors?.length > 0 && <ErrorSection errors={response.errors as string[]} />}
-            {response.bugs?.length > 0 && <BugSection bugs={response.bugs as string[]} />}
-            {response.notes?.length > 0 && <NoteSection notes={response.notes as string[]} />}
-            {response.optimization?.length > 0 && <OptimizationSection optimizations={response.optimization as string[]} />}
-            {response.suggestions?.length > 0 && <SuggestionSection suggestions={response.suggestions as string[]} />}
-            {response.correctcode?.length > 0 && <CorrectCode correct={response.correctcode as string[]} />}
+<>
+      <Navbar />
+      <div className='bg-purple-600/10'>
+        <div className='dark:bg-dot-thick-neutral-800 min-h-screen flex flex-col justify-center items-center'>
+          <form className='flex flex-col text-center  items-center pt-10'>
+            <span
+              className='text-white mb-4 text-lg italic bg-emerald-500 px-8 py-2 rounded-lg translate-x-14'>
+              Provide the code snippet for review:
+            </span>
+            <textarea
+              value={prompt}
+              rows={20}
+              onChange={(e) => setPrompt(e.target.value)}
+              className='bg-slate-900/95 text-white italic p-2 rounded-md resize-none w-[700px] shadow-2xl shadow-emerald-500'
+            ></textarea>
+            <button
+              onClick={handleSubmit}
+              className='bg-green-500 mt-10 rounded-lg pt-3 pb-3 pr-8 pl-8'>
+              {loading ? 'Please Wait...' : 'SUBMIT'}
+            </button>
+          </form>
+          <div className='flex flex-row justify-center items-start gap-10'>
+            {response.marksoutof10 && <ReportCard marks={response.marksoutof10 as number} />}
+            <div className='justify-items-start'>
+              {response.errors?.length > 0 && <ErrorSection errors={response.errors as string[]} />}
+              {response.bugs?.length > 0 && <BugSection bugs={response.bugs as string[]} />}
+              {response.notes?.length > 0 && <NoteSection notes={response.notes as string[]} />}
+              {response.optimization?.length > 0 && <OptimizationSection optimizations={response.optimization as string[]} />}
+              {response.suggestions?.length > 0 && <SuggestionSection suggestions={response.suggestions as string[]} />}
+              {response.correctcode?.length > 0 && <CorrectCode correct={response.correctcode as string[]} />}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

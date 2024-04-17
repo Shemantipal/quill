@@ -55,4 +55,20 @@
 }
 
 
-  
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(156, 0, 240);
+  border-radius: 10px;
+}
