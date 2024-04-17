@@ -1,5 +1,3 @@
-import React from 'react'
-
 function CorrectCode({ correct }: { correct: string[] }) {
     return (
         <div className='mt-10  max-w-2xl px-3 py-2 rounded-lg'>
