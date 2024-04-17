@@ -33,7 +33,7 @@ function App() {
     `;
     try {
       await axios
-        .post('http://localhost:5000/send-prompt', { prompt: prompts })
+        .post('https://quill-server.vercel.app/send-prompt', { prompt: prompts })
         .then((response) => {
           const responseJson = JSON.parse(response.data.response) || response;
           console.log(responseJson);
